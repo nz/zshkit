@@ -7,6 +7,8 @@ function not_run_from_ssh () {
 
 if [[ -x `which mate` && $(not_run_from_ssh) = 1 ]]; then
 	EDITOR="mate -w"
+elif [[ -x `which vim` ]]; then
+	EDITOR=vim
 elif [[ -x `which nano` ]]; then
 	EDITOR=nano
 elif [[ -x `which pico` ]]; then
