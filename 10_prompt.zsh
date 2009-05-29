@@ -6,12 +6,12 @@ PS_HOST="@%{$fg[cyan]%}%m%{$reset_color%}"
 PS_DIR=":%{$fg[cyan]%}%~%{$reset_color%}"
 PS_ROOT_HASH="%{[0m%}%(#:%{[0;31m%}#%{[0m%}:)"
 
-PROMPT='\
+PROMPT="\
 %{$reset_color%}\
 $PS_ERROR\
 $PS_USER\
 $PS_HOST\
-$PS_DIR \
+$PS_DIR\
 $(git-prompt)\
 $PS_ROOT_HASH\
- '
+ "
