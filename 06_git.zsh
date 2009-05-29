@@ -1,5 +1,9 @@
 if [[ -x `which git` ]]; then
+
 	alias g=git
+	alias gd='git diff'
+	alias gs='git status'
+
 	function git-branch-name () {
 		git branch 2> /dev/null | grep '^\*' | sed 's/^\*\ //'
 	}
