@@ -22,12 +22,25 @@ if [[ -x `which git` ]]; then
 		gstatus=$(git status 2> /dev/null)
 		branch=$(echo $gstatus | head -1 | sed 's/^# On branch //')
 		dirty=$(echo $gstatus | sed 's/^#.*$//' | tail -2 | grep 'nothing to commit (working directory clean)'; echo $?)
+		ahead=$(echo $gstatus | head -2 | grep -c 'ahead')
+		behind=$(echo $gstatus | head -2 | grep -c 'behind')
+		diverged=$(echo $gstatus | head -2 | grep -c 'diverged')
 		if [[ x$branch != x ]]; then
+			indicator=""
 			dirty_color=$fg[green]
-			if [[ $dirty = 1 ]] { dirty_color=$fg[magenta] }
-			[ x$branch != x ] && echo " %{$dirty_color%}$branch%{$reset_color%}"
+			if [[ $dirty		= 1 ]] { dirty_color=$fg[magenta] }
+			if [[ $ahead		= 1 ]] { indicator="↑" }
+			if [[ $behind		= 1 ]] { indicator="↓" }
+			if [[ $diverged = 1 ]] { indicator="↕" }
+			[ x$branch != x ] && echo " %{$dirty_color%}$branch%{$reset_color%}$indicator"
 		fi
 	}
+	# similar to the above, but without checking to see if the branch is dirty
+	function git-prompt-lite() {
+		ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
+		echo " %{$fg[cyan]%}${ref#refs/heads/}%{$reset_color%}"
+	}
+	
 	function git-scoreboard () {
 		git log | grep Author | sort | uniq -ci | sort -r
 	}
