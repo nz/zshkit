@@ -23,9 +23,9 @@ if [[ -x `which git` ]]; then
 		branch=$(echo $gstatus | head -1 | sed 's/^# On branch //')
 		dirty=$(echo $gstatus | sed 's/^#.*$//' | tail -2 | grep 'nothing to commit (working directory clean)'; echo $?)
 		if [[ x$branch != x ]]; then
-			dirty_color=$fg[cyan]
+			dirty_color=$fg[green]
 			if [[ $dirty = 1 ]] { dirty_color=$fg[magenta] }
-			[ x$branch != x ] && echo " (%{$dirty_color%}$branch%{$reset_color%})"
+			[ x$branch != x ] && echo " %{$dirty_color%}$branch%{$reset_color%}"
 		fi
 	}
 	function git-scoreboard () {
