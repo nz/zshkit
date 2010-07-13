@@ -1,5 +1,5 @@
-# I want /opt/local/bin to take precedence
-path=($HOME/.bin /opt/local/bin /opt/local/libexec/git-core $path)
+# I want a custom ~/.bin and also local rubygems
+path=($HOME/.bin $HOME/.gem/ruby/1.8/bin /usr/local/bin $path)
 
 # Allow MacPorts man pages
 manpath=($manpath /opt/local/man)
