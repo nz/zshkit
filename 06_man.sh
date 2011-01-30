@@ -5,3 +5,6 @@ if [[ $OSTYPE[1,6] == "darwin" ]]; then
 		man -t $* | ps2pdf - - | open -f -a Preview
 	}
 fi
+
+
+manpath=($manpath /opt/local/man)
