@@ -4,8 +4,14 @@ function druby() {
   ruby -rubygems -I lib $@
 }
 
-alias bi='bundle install --path vendor/bundle'
+alias bi='bundle install --path .bundle/gems'
 alias be='bundle exec $*'
+
+alias cap='bundle exec cap $*'
+alias rake='bundle exec rake $*'
+alias rails='bundle exec rails $*'
+alias foreman='bundle exec foreman *$'
+
 
 # export GEM_HOME="$(brew --prefix)/Cellar/gems/1.9.1"
 export GEM_HOME="/usr/local/Cellar/Gems"

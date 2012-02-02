@@ -9,16 +9,12 @@ prompt_dir () {
    print -nP "%~" | sed -Ef ~/.zshkit/prompt_dir.sed
 }
 
-PROMPT_DIR=":%{$fg[cyan]%}$(prompt_dir)%{$reset_color%}"
-
-# :%{$fg[cyan]%}$(print -nP %~)%{$reset_color%}\
-
 PROMPT='\
 %{$reset_color%}\
 $PS_ERROR\
 $PS_USER\
 $PS_HOST\
-$PROMPT_DIR\
+:%{$fg[cyan]%}$(prompt_dir)%{$reset_color%}\
 $(git-prompt)\
 $PS_ROOT_HASH\
  '
