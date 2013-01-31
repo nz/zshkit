@@ -1,0 +1,4 @@
+source /Users/nz/.zshkit/rc
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
