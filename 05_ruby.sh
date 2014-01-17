@@ -12,19 +12,3 @@ alias be='bundle exec $*'
 export RUBYOPT=rubygems
 
 export RBXOPT=-Xrbc.db=/tmp/rbx
-
-# [[ -s "/Users/nick/Developer/.rvm/scripts/rvm" ]] && source "/Users/nick/Developer/.rvm/scripts/rvm"
-
-# function rvmall() {
-#   for i in system 1.8.7 1.9.2 rbx; do
-#     rvm use $i
-#     if [ -f Gemfile ]; then
-#       bundle exec $*
-#     else
-#       $*
-#     fi
-#   done
-# }
-
-# alias rvmbi='rvmall bundle install --path vendor/bundle'
-
