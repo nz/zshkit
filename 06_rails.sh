@@ -8,6 +8,14 @@ function cap() {
   fi
 }
 
+function rspec() {
+  if [ -f Gemfile ]; then
+    bundle exec rspec $*
+  else
+    rspec $*
+  fi
+}
+
 function rake() {
   if [ -f Gemfile ]; then
     bundle exec rake $*
@@ -47,5 +55,3 @@ function guard() {
     guard $*
   fi
 }
-
-
