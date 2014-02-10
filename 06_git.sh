@@ -20,8 +20,8 @@ if [[ -x `which git` ]]; then
 	}
 	function git-prompt() {
 		gstatus=$(git status 2> /dev/null)
-		branch=$(echo $gstatus | head -1 | sed 's/^# On branch //')
-		dirty=$(echo $gstatus | sed 's/^#.*$//' | tail -2 | grep 'nothing to commit (working directory clean)'; echo $?)
+		branch=$(echo $gstatus | head -1 | sed 's/^(# )?On branch //')
+		dirty=$(echo $gstatus | sed 's/^#.*$//' | tail -2 | grep 'nothing to commit'; echo $?)
 		ahead=$(echo $gstatus | head -2 | grep -c 'ahead')
 		behind=$(echo $gstatus | head -2 | grep -c 'behind')
 		diverged=$(echo $gstatus | head -2 | grep -c 'diverged')
