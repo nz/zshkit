@@ -1,0 +1,38 @@
+[push]
+  default = tracking
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[format]
+  pretty = %Cblue%h%Creset %Cgreen[%ar]%Creset (%an) %s
+[user]
+	name = Nick Zadrozny
+  email = nick@beyondthepath.com
+[alias]
+  b = branch
+  ci = commit
+  co = checkout
+  st = status
+  ca = commit -a
+  pu = !git pull --rebase && git push
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[github]
+	user = nick
+  token = 9a12594c5b4b66614bcb5c334b9ea3eb
+[apply]
+  whitespace = nowarn
+[push]
+  default = current
+[help]
+  autocorrect = 1
+[branch]
+  autosetuprebase = always
+[core]
+	quotepath = false
+	excludesfile = /Users/nick/.gitignore
+[rerere]
+	enabled = 1

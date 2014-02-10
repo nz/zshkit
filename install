@@ -7,5 +7,7 @@ dest=$HOME
 echo My Directory: $mydir
 cp $HOME/.zshenv $HOME/.zshenv.pre_zshkit
 cp $HOME/.zshrc $HOME/.zshrc.pre_zshkit
+cp $HOME/.gitconfig $HOME/.gitconfig.pre_zshkit
 cp $mydir/default_zshenv $HOME/.zshenv
 cp $mydir/default_zshrc $HOME/.zshrc
+cp $mydir/default_gitconfig $HOME/.gitconfig
