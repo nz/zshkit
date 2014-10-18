@@ -3,7 +3,7 @@ if [[ -x `which git` ]]; then
 	if [[ $mydir = . ]]; then
 		mydir=`pwd`
 	fi
-	
+
 	function zshkit-update () {
 		pushd $HOME
 		pushd $mydir
