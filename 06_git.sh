@@ -12,7 +12,7 @@ if [[ -x `which git` ]]; then
 		echo $?
 	}
 	function gsrb () {
-		branch=$(git-branch-name) 
+		branch=$(git-branch-name)
 		git checkout master
 		git svn rebase
 		git checkout "${branch}"
@@ -20,7 +20,7 @@ if [[ -x `which git` ]]; then
 	}
 	function git-prompt() {
 		gstatus=$(git status 2> /dev/null)
-		branch=$(echo $gstatus | head -1 | sed 's/^(# )?On branch //')
+		branch=$(echo $gstatus | head -1 | sed -E 's/^(# )?On branch //')
 		dirty=$(echo $gstatus | sed 's/^#.*$//' | tail -2 | grep 'nothing to commit'; echo $?)
 		ahead=$(echo $gstatus | head -2 | grep -c 'ahead')
 		behind=$(echo $gstatus | head -2 | grep -c 'behind')
@@ -40,7 +40,7 @@ if [[ -x `which git` ]]; then
 		ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
 		echo " %{$fg[cyan]%}${ref#refs/heads/}%{$reset_color%}"
 	}
-	
+
 	function git-scoreboard () {
 		git log | grep Author | sort | uniq -ci | sort -r
 	}
@@ -54,16 +54,16 @@ if [[ -x `which git` ]]; then
 		git config branch.$(git-branch-name).remote origin
 		git config branch.$(git-branch-name).merge refs/heads/$(git-branch-name)
 	}
-	
+
 	function github-url () {
 		git config remote.origin.url | sed -En 's/git(@|:\/\/)github.com(:|\/)(.+)\/(.+).git/https:\/\/github.com\/\3\/\4/p'
 	}
-	
+
 	# Seems to be the best OS X jump-to-github alias from http://tinyurl.com/2mtncf
 	function github-go () {
 		open $(github-url)
 	}
-	
+
 	function nhgk () {
 		nohup gitk --all &
 	}
