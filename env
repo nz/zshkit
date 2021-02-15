@@ -1,9 +1,3 @@
-if [[ $SHLVL < 3 ]]; then
-  zshkitdir=`dirname $0`
-
-  source $zshkitdir/rc
-
-	for f in $zshkitdir/??_*; do
-    source $f
-	done
-fi
+echo ".zshkit/env"
+# moved the sourcing into rc
+echo ".zshkit/env DONE"

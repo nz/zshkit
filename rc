@@ -1,3 +1,5 @@
+echo ".zshkit/rc"
+
 zstyle ':completion:*' completer _expand _complete
 
 autoload -Uz compinit
@@ -5,3 +7,12 @@ compinit
 
 autoload -Uz colors
 colors
+
+if [[ $SHLVL < 3 ]]; then
+  zshkitdir=`dirname $0`
+
+  for f in $zshkitdir/??_*; do
+    echo "source $f"
+    source $f
+  done
+fi

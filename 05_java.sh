@@ -1,1 +1,3 @@
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [ -x java_home ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
