@@ -14,7 +14,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/usr/local/lib/node_modules"
 
 # nvm through homebrew
-if [ -x brew ]; then
+if type brew &>/dev/null; then
   nvmsh=$(brew --prefix nvm)/nvm.sh
   if [ -f $nvmsh ]; then
     source $nvmsh
@@ -22,7 +22,7 @@ if [ -x brew ]; then
 fi
 
 # rbenv
-if [ -x rbenv ]; then
+if type rbenv &>/dev/null; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init - zsh --no-rehash)"
 fi

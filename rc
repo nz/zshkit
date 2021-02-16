@@ -1,4 +1,4 @@
-echo ".zshkit/rc"
+# echo ".zshkit/rc"
 
 zstyle ':completion:*' completer _expand _complete
 
@@ -12,7 +12,7 @@ if [[ $SHLVL < 3 ]]; then
   zshkitdir=`dirname $0`
 
   for f in $zshkitdir/??_*; do
-    echo "source $f"
+    # echo "source $f"
     source $f
   done
 fi

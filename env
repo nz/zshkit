@@ -1,3 +1,3 @@
-echo ".zshkit/env"
+# echo ".zshkit/env"
 # moved the sourcing into rc
-echo ".zshkit/env DONE"
+# echo ".zshkit/env DONE"

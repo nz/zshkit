@@ -1,5 +1,3 @@
-set -x
-
 setopt prompt_subst
 
 PS_ERROR="%(?::%{$fg_bold[white]$bg[red]%}[%?]%{$reset_color%} )"
@@ -20,5 +18,3 @@ $PS_HOST\
 $(git-prompt)\
 $PS_ROOT_HASH\
  '
-
-set +x
